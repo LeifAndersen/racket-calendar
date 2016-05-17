@@ -12,7 +12,10 @@
   #:transparent)
 
 (define date-parse-strings
-  '("LLLL d, y"))
+  '("LLLL d, y"
+    "E., LLLL d, y"
+    "E, LLLL d, y"
+    "EEEE, LLLL d, y"))
 
 (define time-parse-strings
   '("ha"

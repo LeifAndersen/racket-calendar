@@ -52,7 +52,7 @@
     (with-output-to-file calendar
       #:exists 'append
       (λ ()
-        (write (list (~t (event-date event) "E, MMM d, y")
+        (write (list (~t (event-date event) "E., MMM d, y")
                      (and (event-start-time event)
                           (~t (event-start-time event) "h:mm a"))
                      (and (event-end-time event)
