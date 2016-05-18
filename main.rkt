@@ -58,4 +58,5 @@
                      (and (event-end-time event)
                           (~t (event-end-time event) "h:mm a"))
                      (~a (event-name event))
-                     (~a (event-location event)))))))
+                     (~a (event-location event))))
+        (newline))))
