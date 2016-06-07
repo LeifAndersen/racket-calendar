@@ -13,6 +13,7 @@
 
 (define date-parse-strings
   '("LLLL d, y"
+    "LLL d, y"
     "E., LLL d, y"
     "E, LLL d, y"
     "E., LLLL d, y"
