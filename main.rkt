@@ -4,7 +4,9 @@
          (struct-out event)
          get-events
          build-event
-         add-event-to-calendar!)
+         add-event-to-calendar!
+         event-start->moment
+         event-end->moment)
 (require "private/event.rkt"
          gregor
          (for-syntax racket/syntax
@@ -60,3 +62,21 @@
                      (~a (event-name event))
                      (~a (event-location event))))
         (newline))))
+
+(define (event-start->moment e)
+  (to-moment (event-date e)
+             (event-start-time e)))
+
+(define (event-end->moment e)
+  (to-moment (event-date e)
+             (event-end-time e)
+             #t))
+
+(define (to-moment date time [end #f])
+  (moment (->year date)
+          (->month date)
+          (->day date)
+          (if time (->hours time) (if end 23 0))
+          (if time (->minutes time) (if end 59 0))
+          (if time (->seconds time) (if end 59 0))
+          (if time (->nanoseconds time) 0)))
